@@ -1,11 +1,14 @@
 let homeButton, searchbutton;
 let homePage;
 let notificationButton;
+let searchImg;
+
 let notificationPage;
 
 function preload() {
-  homePage = loadImage('assets/Home.png');
+  homePage = loadImage('assets/HomePage.png');
   notificationPage = loadImage('assets/Notification_Page.png');
+  searchImg = loadImage('assets/Search.png');
 }
 
 function setup() {
@@ -25,6 +28,12 @@ function setupSearchButton() {
   searchbutton.style('background-color', 'transparent');
   searchbutton.style('border', 'none');
   searchbutton.style('cursor', 'pointer');
+
+  searchbutton.mousePressed(showSearchMenu);
+}
+
+function showSearchMenu() {
+  image(searchImg, 30, 100);
 }
 
 function setupNotificationButton() {
@@ -40,4 +49,9 @@ function setupNotificationButton() {
 
 function showNotificationMenu() {
   image(notificationPage, 0, 0);
+  notificationButton = createButton('');
+  notificationButton.position(200, 519);
+  notificationButton.style('background-color', 'transparent');
+  notificationButton.style('border', 'none');
+  notificationButton.style('cursor', 'pointer');
 }
