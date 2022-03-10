@@ -1,18 +1,21 @@
-let button, img, searchImg, searchbutton;
+let homeButton, searchbutton;
+let homePage;
+let notificationButton;
+let searchImg;
 
 function preload() {
-  img = loadImage('assets/HomePage.png');
+  homePage = loadImage('assets/HomePage.png');
   searchImg = loadImage('assets/Search.png');
 }
 
 function setup() {
   // put setup code here
   createCanvas(297, 580);
-  background(50);
+
+  image(homePage, 0, 0);
 
   setupSearchButton();
-
-  image(img, 0, 0);
+  setupNotificationButton();
 }
 
 function setupSearchButton() {
@@ -28,4 +31,12 @@ function setupSearchButton() {
 
 function showSearchMenu() {
   image(searchImg, 30, 100);
+}
+
+function setupNotificationButton() {
+  notificationButton = createButton('notification');
+  notificationButton.position(200, 519);
+  notificationButton.style('background-color', 'transparent');
+  notificationButton.style('border', 'none');
+  notificationButton.style('cursor', 'pointer');
 }
