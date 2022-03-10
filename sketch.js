@@ -1,10 +1,11 @@
 let homeButton, searchbutton;
 let homePage;
 let notificationButton;
+let notificationPage;
 
 function preload() {
   homePage = loadImage('assets/Home.png');
-be72c0c94372a85acbbd3f899
+  notificationPage = loadImage('assets/Notification_Page.png');
 }
 
 function setup() {
@@ -12,8 +13,6 @@ function setup() {
   createCanvas(297, 580);
 
   image(homePage, 0, 0);
-
-  background(50);
 
   setupSearchButton();
   setupNotificationButton();
@@ -29,9 +28,16 @@ function setupSearchButton() {
 }
 
 function setupNotificationButton() {
-  notificationButton = createButton("notification");
-  notificationButton.position(200, 519);
+  notificationButton = createButton('');
+  notificationButton.position(210, 519);
+  notificationButton.size(50, 20);
   notificationButton.style("background-color", "transparent");
   notificationButton.style("border", "none");
   notificationButton.style("cursor", "pointer");
+
+  notificationButton.mousePressed(showNotificationMenu);
+}
+
+function showNotificationMenu() {
+  image(notificationPage, 0, 0);
 }
