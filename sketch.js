@@ -1,7 +1,8 @@
-let button, img, searchbutton;
+let button, img, searchImg, searchbutton;
 
 function preload() {
-  img = loadImage('assets/Home.png');
+  img = loadImage('assets/HomePage.png');
+  searchImg = loadImage('assets/Search.png');
 }
 
 function setup() {
@@ -11,7 +12,7 @@ function setup() {
 
   setupSearchButton();
 
-  loadCamera();
+  image(img, 0, 0);
 }
 
 function setupSearchButton() {
@@ -21,9 +22,10 @@ function setupSearchButton() {
   searchbutton.style('background-color', 'transparent');
   searchbutton.style('border', 'none');
   searchbutton.style('cursor', 'pointer');
+
+  searchbutton.mousePressed(showSearchMenu);
 }
 
-function loadCamera() {
-  // put drawing code here
-  image(img, 0, 0);
+function showSearchMenu() {
+  image(searchImg, 30, 100);
 }
