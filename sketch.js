@@ -1,16 +1,26 @@
-let button, img;
+let button, img, searchbutton;
 
 function preload() {
-  img = loadImage('assets/RedditWireframe.png');
+  img = loadImage('assets/Home.png');
 }
 
 function setup() {
   // put setup code here
-  createCanvas(400, 800);
+  createCanvas(297, 580);
   background(50);
-  button = createButton('click me');
-  button.position(19, 19);
-  button.mousePressed(loadCamera);
+
+  setupSearchButton();
+
+  loadCamera();
+}
+
+function setupSearchButton() {
+  searchbutton = createButton('');
+  searchbutton.position(80, 55);
+  searchbutton.size(175, 20);
+  searchbutton.style('background-color', 'transparent');
+  searchbutton.style('border', 'none');
+  searchbutton.style('cursor', 'pointer');
 }
 
 function loadCamera() {
