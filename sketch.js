@@ -19,6 +19,7 @@ function setup() {
 
   setupSearchButton();
   setupNotificationButton();
+  setupHomeButton();
 }
 
 function setupSearchButton() {
@@ -54,4 +55,19 @@ function showNotificationMenu() {
   notificationButton.style('background-color', 'transparent');
   notificationButton.style('border', 'none');
   notificationButton.style('cursor', 'pointer');
+}
+
+function setupHomeButton() {
+  homeButton = createButton('');
+  homeButton.position(20, 519);
+  homeButton.size(50, 20);
+  homeButton.style("background-color", "transparent");
+  homeButton.style("border", "none");
+  homeButton.style("cursor", "pointer");
+
+  homeButton.mousePressed(showHomeMenu);
+}
+
+function showHomeMenu() {
+  image(homePage, 0, 0);
 }
