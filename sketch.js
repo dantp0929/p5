@@ -3,12 +3,18 @@ let homePage;
 let notificationButton;
 let searchImg;
 let upvoteImg;
+let downvoteImg;
 let swiperButton;
+let swiperButton2;
+
+let notificationPage;
 
 function preload() {
   homePage = loadImage('assets/HomePage.png');
+  notificationPage = loadImage('assets/Notification_Page.png');
   searchImg = loadImage('assets/Search.png');
   upvoteImg = loadImage('assets/Upvote.png');
+  downvoteImg = loadImage('assets/Downvote.png');
 }
 
 function setup() {
@@ -21,6 +27,7 @@ function setup() {
   setupNotificationButton();
   setupCanvasSwipe();
   setupCanvas2Swipe();
+  setupHomeButton();
 }
 
 function setupSearchButton() {
@@ -39,7 +46,19 @@ function showSearchMenu() {
 }
 
 function setupNotificationButton() {
-  notificationButton = createButton('notification');
+  notificationButton = createButton('');
+  notificationButton.position(210, 519);
+  notificationButton.size(50, 20);
+  notificationButton.style('background-color', 'transparent');
+  notificationButton.style('border', 'none');
+  notificationButton.style('cursor', 'pointer');
+
+  notificationButton.mousePressed(showNotificationMenu);
+}
+
+function showNotificationMenu() {
+  image(notificationPage, 0, 0);
+  notificationButton = createButton('');
   notificationButton.position(200, 519);
   notificationButton.style('background-color', 'transparent');
   notificationButton.style('border', 'none');
@@ -61,4 +80,37 @@ function showUpvote() {
   swiperbutton.mousePressed(showHomeMenu);
 }
 
-function setupCanvas2Swipe() {}
+function setupCanvas2Swipe() {
+  swiperbutton2 = createButton('');
+  swiperbutton2.position(25, 190);
+  swiperbutton2.size(250, 100);
+  swiperbutton2.style('background-color', 'transparent');
+  swiperbutton2.style('border', 'none');
+  swiperbutton2.style('cursor', 'pointer');
+  swiperbutton2.mousePressed(showDownvote);
+}
+
+function showDownvote() {
+  image(downvoteImg, 28, 200);
+  swiperbutton2.mousePressed(showHomeMenu);
+}
+
+function setupHomeButton() {
+  homeButton = createButton('');
+  homeButton.position(20, 519);
+  homeButton.size(50, 20);
+  homeButton.style('background-color', 'transparent');
+  homeButton.style('border', 'none');
+  homeButton.style('cursor', 'pointer');
+
+  homeButton.mousePressed(showHomeMenu);
+}
+
+function showHomeMenu() {
+  image(homePage, 0, 0);
+
+  setupSearchButton();
+  setupCanvasSwipe();
+  setupCanvas2Swipe();
+  setupNotificationButton();
+}
