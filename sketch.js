@@ -10,6 +10,8 @@ let notificationPost;
 
 let notificationPage;
 let notificationDeletePage;
+let notificationDeletedPage
+let notificationDeleteButton;
 
 function preload() {
   homePage = loadImage('assets/HomePage.png');
@@ -19,6 +21,7 @@ function preload() {
   downvoteImg = loadImage('assets/Downvote.png');
   notificationPost = loadImage('assets/Notification_post.png');
   notificationDeletePage = loadImage('assets/Notification.png');
+  notificationDeletedPage = loadImage('assets/Notification_Deleted.png');
 }
 
 function setup() {
@@ -79,6 +82,18 @@ function showNotificationMenu() {
 
 function showNotificationMenuDelete() {
   image(notificationDeletePage, 0, 0);
+
+  notificationDeleteButton = createButton('');
+  notificationDeleteButton.position(170, 100);
+  notificationDeleteButton.size(80, 80);
+  notificationDeleteButton.style('background-color', 'transparent');
+  notificationDeleteButton.style('border', 'none');
+  notificationDeleteButton.style('cursor', 'pointer');
+  notificationDeleteButton.mousePressed(showNotificationMenuDeletedPost);
+}
+
+function showNotificationMenuDeletedPost() {
+  image(notificationDeletedPage, 0, 0);
 }
 
 function setupCanvasSwipe() {
